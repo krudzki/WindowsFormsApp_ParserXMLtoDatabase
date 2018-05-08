@@ -38,6 +38,20 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
 
         }
 
+        public void ShowTables()
+        {
+            string command = "SHOW TABLES";
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(command, connection);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            foreach (DataRow row in dataTable.Rows)
+            {
+                string tableName = string.Format("{0}", row.ItemArray[0]);
+                comboBox1.Items.Add(tableName);
+            }
+            connection.Close();
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
@@ -58,6 +72,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
         private void F_DatabaseView_Load(object sender, EventArgs e)
         {
             FillGrid();
+            ShowTables();
         }
 
         private void buttonADD_Click(object sender, EventArgs e)

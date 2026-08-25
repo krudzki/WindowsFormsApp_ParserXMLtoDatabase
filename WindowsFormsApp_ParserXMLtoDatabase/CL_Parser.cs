@@ -26,11 +26,11 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             int itemCount = 0;
             int itemDeepCount = 0;
 
-            // Załadowanie dokumentu
+            // Load the document
             XmlDocument doc = new XmlDocument();
             doc.Load(filename);
 
-            // Przygotowanie struktury
+            // Prepare the structure
             Root result = new Root();
             XmlNode elRoot, elTroop, elSight, elDensity, elBible, elHistorian;
 
@@ -64,7 +64,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                 "PRIMARY KEY (ID))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
             command = new MySqlCommand("INSERT INTO " + name + " (" +
                 "name, charge, return_, cucumber, twin, postpone) " +
@@ -78,7 +78,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             command.Parameters.Add("@twin", MySqlDbType.VarChar).Value = twin;
             command.Parameters.Add("@postpone", MySqlDbType.VarChar).Value = postpone;
 
-            ExecMyQuery(command, "Dodano do Twin!");
+            ExecMyQuery(command, "Inserted into Twin!");
 
 
             Oil oil;
@@ -86,7 +86,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             XmlNodeList elOilList = elTroop.ChildNodes;
             XmlNodeList elInformationList;
 
-            // stringi oil
+            // oil strings
             string cat, year, help, study, consideration, remedy, screw;
 
             name = "oil";
@@ -108,9 +108,9 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                 //"   REFERENCES troop(ID, name))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
-            // stringi information
+            // information strings
             string conservative, venus, know, save, innerTextInformation;
 
             name = "information";
@@ -130,7 +130,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             //"   REFERENCES oil(ID, name))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
             List<Oil> ListOfOil = new List<Oil>();
 
@@ -164,7 +164,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                 command.Parameters.Add("@consideration", MySqlDbType.VarChar).Value = consideration;
                 command.Parameters.Add("@remedy", MySqlDbType.VarChar).Value = remedy;
                 command.Parameters.Add("@screw", MySqlDbType.VarChar).Value = screw;
-                ExecMyQuery(command, "Dodano do Twin!");
+                ExecMyQuery(command, "Inserted into Twin!");
 
                 foreach (XmlNode deeperItem in elInformationList)
                 {
@@ -187,7 +187,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                     command.Parameters.Add("@know", MySqlDbType.VarChar).Value = know;
                     command.Parameters.Add("@save", MySqlDbType.VarChar).Value = save;
                     command.Parameters.Add("@innerTextInformation", MySqlDbType.VarChar).Value = innerTextInformation;
-                    ExecMyQuery(command, "Dodano do Twin!");
+                    ExecMyQuery(command, "Inserted into Twin!");
 
                     information = new Information(conservative, venus, know, save, innerTextInformation);
 
@@ -216,7 +216,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                 "PRIMARY KEY (ID))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
             command = new MySqlCommand("INSERT INTO " + name + " (" +
                 "name, depression) " +
@@ -226,14 +226,14 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
             command.Parameters.Add("@depression", MySqlDbType.VarChar).Value = charge;
 
-            ExecMyQuery(command, "Dodano do sight!");
+            ExecMyQuery(command, "Inserted into sight!");
 
             Confine confine;
             Force force;
             XmlNodeList elConfineList = elSight.ChildNodes;
             XmlNodeList elForceList;
 
-            // stringi confine
+            // confine strings
             string related;
 
             name = "confine";
@@ -249,9 +249,9 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             //"   REFERENCES sight(ID, name))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
-            // stringi force
+            // force strings
             string innerTextForce;
 
             name = "force_";
@@ -275,7 +275,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             ////"   REFERENCES confine(ID, name))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
             List<Confine> ListOfconfine = new List<Confine>();
 
@@ -295,7 +295,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                 command.Parameters.Add("@ID", MySqlDbType.Int32).Value = itemCount;
                 command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
                 command.Parameters.Add("@related", MySqlDbType.VarChar).Value = related;
-                ExecMyQuery(command, "Dodano do Twin!");
+                ExecMyQuery(command, "Inserted into Twin!");
 
                 List<Force> ListOfForce = new List<Force>();
                 elForceList = item.ChildNodes;
@@ -313,7 +313,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                     command.Parameters.Add("@ID", MySqlDbType.Int32).Value = itemDeepCount;
                     command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
                     command.Parameters.Add("@innerTextForce", MySqlDbType.VarChar).Value = innerTextForce;
-                    ExecMyQuery(command, "Dodano do Twin!");
+                    ExecMyQuery(command, "Inserted into Twin!");
 
                     force = new Force(innerTextForce);
                     ListOfForce.Add(force);
@@ -353,7 +353,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                 "PRIMARY KEY (ID))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
             command = new MySqlCommand("INSERT INTO " + name + " (" +
                 "name, nail, include, inspire, discourse, instinct, credibility, absorption) " +
@@ -369,7 +369,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             command.Parameters.Add("@credibility", MySqlDbType.VarChar).Value = credibility;
             command.Parameters.Add("@absorption", MySqlDbType.VarChar).Value = absorption;
 
-            ExecMyQuery(command, "Dodano do " + name + "!");
+            ExecMyQuery(command, "Inserted into " + name + "!");
 
             Gesture gesture;
             Hen hen;
@@ -388,9 +388,9 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             //"   REFERENCES density(ID, name))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
-            // stringi hen
+            // hen strings
             string innerTextHen;
 
             name = "hen";
@@ -406,7 +406,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             //"   REFERENCES gesture(ID, name))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
             List<Gesture> ListOfGesture = new List<Gesture>();
 
@@ -423,7 +423,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
 
                 command.Parameters.Add("@ID", MySqlDbType.Int32).Value = itemCount;
                 command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
-                ExecMyQuery(command, "Dodano do Twin!");
+                ExecMyQuery(command, "Inserted into Twin!");
 
                 List<Hen> ListOfHen = new List<Hen>();
                 elHenList = item.ChildNodes;
@@ -441,7 +441,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                     command.Parameters.Add("@ID", MySqlDbType.Int32).Value = itemDeepCount;
                     command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
                     command.Parameters.Add("@innerTextHen", MySqlDbType.VarChar).Value = innerTextHen;
-                    ExecMyQuery(command, "Dodano do Twin!");
+                    ExecMyQuery(command, "Inserted into Twin!");
 
                     hen = new Hen(innerTextHen);
                     ListOfHen.Add(hen);
@@ -479,7 +479,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                 "PRIMARY KEY (ID))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
             command = new MySqlCommand("INSERT INTO " + name + " (" +
                 "name, waterfall, chemical, descent, act, appeal, shaft) " +
@@ -494,14 +494,14 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             command.Parameters.Add("@appeal", MySqlDbType.VarChar).Value = appeal;
             command.Parameters.Add("@shaft", MySqlDbType.VarChar).Value = shaft;
 
-            ExecMyQuery(command, "Dodano do "+ name +"!");
+            ExecMyQuery(command, "Inserted into " + name + "!");
 
             Sell sell;
             Specified specified;
             XmlNodeList elSellList = elBible.ChildNodes;
             XmlNodeList elSpecifiedList;
 
-            // stringi sell
+            // sell strings
             string bow, send, shop, file;
 
             name = "sell";
@@ -520,9 +520,9 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             //"   REFERENCES bible(ID, name))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
-            // stringi specified
+            // specified strings
             string muscle, pipe, innerTextSpecified;
 
             name = "specified";
@@ -540,7 +540,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             //"   REFERENCES sell(ID, name))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
             List<Sell> ListOfSell = new List<Sell>();
 
@@ -566,7 +566,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                 command.Parameters.Add("@send", MySqlDbType.VarChar).Value = send;
                 command.Parameters.Add("@shop", MySqlDbType.VarChar).Value = shop;
                 command.Parameters.Add("@file", MySqlDbType.VarChar).Value = file;
-                ExecMyQuery(command, "Dodano do Twin!");
+                ExecMyQuery(command, "Inserted into Twin!");
 
                 List<Specified> ListOfSpecified = new List<Specified>();
                 elSpecifiedList = item.ChildNodes;
@@ -588,7 +588,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                     command.Parameters.Add("@muscle", MySqlDbType.VarChar).Value = muscle;
                     command.Parameters.Add("@pipe", MySqlDbType.VarChar).Value = pipe;
                     command.Parameters.Add("@innerTextSpecified", MySqlDbType.VarChar).Value = innerTextSpecified;
-                    ExecMyQuery(command, "Dodano do Twin!");
+                    ExecMyQuery(command, "Inserted into Twin!");
 
                     specified = new Specified(muscle, pipe, innerTextSpecified);
                     ListOfSpecified.Add(specified);
@@ -613,7 +613,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                 "PRIMARY KEY (ID))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
             command = new MySqlCommand("INSERT INTO " + name + " (" +
                 "name) " +
@@ -622,7 +622,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
 
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
 
-            ExecMyQuery(command, "Dodano do " + name + "!");
+            ExecMyQuery(command, "Inserted into " + name + "!");
 
             Crash crash;
             Different different;
@@ -641,9 +641,9 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             //"   REFERENCES historian(ID, name))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
-            // stringi different
+            // different strings
             string innerTextDifferent;
 
             name = "different";
@@ -659,7 +659,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             //"   REFERENCES crash(ID, name))", connection);
 
             TestMyQuery(commandTEST, command, name);
-            ExecMyQuery(command, "Utworzono " + name);
+            ExecMyQuery(command, "Created " + name);
 
             List<Crash> ListOfCrash = new List<Crash>();
 
@@ -676,7 +676,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
 
                 command.Parameters.Add("@ID", MySqlDbType.Int32).Value = itemCount;
                 command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
-                ExecMyQuery(command, "Dodano do Twin!");
+                ExecMyQuery(command, "Inserted into Twin!");
 
 
                 List<Different> ListOfDifferent = new List<Different>();
@@ -695,7 +695,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
                     command.Parameters.Add("@ID", MySqlDbType.Int32).Value = itemDeepCount;
                     command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
                     command.Parameters.Add("@innerTextDifferent", MySqlDbType.VarChar).Value = innerTextDifferent;
-                    ExecMyQuery(command, "Dodano do Twin!");
+                    ExecMyQuery(command, "Inserted into Twin!");
 
                     different = new Different(innerTextDifferent);
                     ListOfDifferent.Add(different);

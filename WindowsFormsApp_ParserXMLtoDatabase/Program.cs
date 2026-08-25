@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
     static class Program
     {
         /// <summary>
-        /// Główny punkt wejścia dla aplikacji.
+        /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()

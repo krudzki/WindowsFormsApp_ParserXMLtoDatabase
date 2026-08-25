@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,14 +23,14 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             InitializeComponent();
         }
 
-        private void buttonWczytajXML_Click(object sender, EventArgs e)
+        private void buttonLoadXml_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                String nazwa_pliku = openFileDialog.FileName;
-                root = parser.Parser(nazwa_pliku);
-                MessageBox.Show("Pomyślenie zakonczono wczytywanie XML do bazdy danych MySQL!");
+                String xmlFilePath = openFileDialog.FileName;
+                root = parser.Parser(xmlFilePath);
+                MessageBox.Show("Successfully finished loading the XML into the MySQL database!");
             }
         }
 

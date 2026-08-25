@@ -35,9 +35,7 @@ these are serialized contract strings, not prose).
 
 ## Configuration
 
-The MySQL connection string is hard-coded in `CL_Parser.cs` and
-`F_DatabaseView.cs` (server/user/password). Change it there before use, or
-better, move it to `App.config`.
+Set `XML_PARSER_MYSQL_CONNECTION_STRING` in the process environment before starting the application. The connection string is intentionally not stored in source control.
 
 ## Requirements
 

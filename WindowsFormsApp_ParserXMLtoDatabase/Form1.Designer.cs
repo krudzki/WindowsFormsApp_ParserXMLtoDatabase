@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp_ParserXMLtoDatabase
+namespace WindowsFormsApp_ParserXMLtoDatabase
 {
     partial class Form1
     {
@@ -30,7 +30,7 @@
         {
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonWczytajXML = new System.Windows.Forms.Button();
+            this.buttonLoadXml = new System.Windows.Forms.Button();
             this.buttonViewDatabase = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -42,24 +42,24 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.buttonWczytajXML);
+            this.flowLayoutPanel1.Controls.Add(this.buttonLoadXml);
             this.flowLayoutPanel1.Controls.Add(this.buttonViewDatabase);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(700, 375);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // buttonWczytajXML
+            // buttonLoadXml
             // 
-            this.buttonWczytajXML.BackColor = System.Drawing.Color.Chartreuse;
-            this.buttonWczytajXML.Font = new System.Drawing.Font("Sitka Small", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonWczytajXML.Location = new System.Drawing.Point(3, 3);
-            this.buttonWczytajXML.Name = "buttonWczytajXML";
-            this.buttonWczytajXML.Size = new System.Drawing.Size(341, 365);
-            this.buttonWczytajXML.TabIndex = 0;
-            this.buttonWczytajXML.Text = "Wczytaj XML do bazy danych MYSQL!";
-            this.buttonWczytajXML.UseVisualStyleBackColor = false;
-            this.buttonWczytajXML.Click += new System.EventHandler(this.buttonWczytajXML_Click);
+            this.buttonLoadXml.BackColor = System.Drawing.Color.Chartreuse;
+            this.buttonLoadXml.Font = new System.Drawing.Font("Sitka Small", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLoadXml.Location = new System.Drawing.Point(3, 3);
+            this.buttonLoadXml.Name = "buttonLoadXml";
+            this.buttonLoadXml.Size = new System.Drawing.Size(341, 365);
+            this.buttonLoadXml.TabIndex = 0;
+            this.buttonLoadXml.Text = "Wczytaj XML do bazy danych MYSQL!";
+            this.buttonLoadXml.UseVisualStyleBackColor = false;
+            this.buttonLoadXml.Click += new System.EventHandler(this.buttonLoadXml_Click);
             // 
             // buttonViewDatabase
             // 
@@ -90,7 +90,7 @@
 
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button buttonWczytajXML;
+        private System.Windows.Forms.Button buttonLoadXml;
         private System.Windows.Forms.Button buttonViewDatabase;
     }
 }

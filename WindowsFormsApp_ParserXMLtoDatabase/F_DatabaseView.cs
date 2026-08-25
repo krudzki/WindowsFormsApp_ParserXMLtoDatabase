@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +19,7 @@ namespace WindowsFormsApp_ParserXMLtoDatabase
             InitializeComponent();
         }
 
-        MySqlConnection connection = new MySqlConnection("server=liza.umcs.lublin.pl;user=krudzki;database=krudzki;password=kwiecien0404;SslMode=none");
+        MySqlConnection connection = DatabaseConnection.Create();
         String id;
 
         public void FillGrid()
